@@ -3,9 +3,11 @@
     <h1>
       <i class="iconfont" :class="site.icon"></i>
       {{ site.name }}
-      <span class="version">v{{ site.version }}</span>
+      <span class="version">v{{ site.ver }}</span>
     </h1>
-    <p>{{ site.description }}</p>
+    <p>
+      {{ site.desc }} <span>{{ site.type[0] }}</span>
+    </p>
   </el-card>
 </template>
 
@@ -19,7 +21,9 @@ export default {
   props: ['site'],
   methods: {
     open(site) {
-      window.open(site.url, 'target');
+      // window.open(site.url, 'target');
+      /* eslint no-underscore-dangle: 0 */
+      this.$router.replace({ path: `/updateweb/${site._id}` });
     },
   },
 };
@@ -29,7 +33,7 @@ export default {
   width: 300px;
   height: 200px;
   background-size: cover;
-  background-image: rgba(0, 0, 0, 0, 0.5);
+  background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);
   margin: 20px;
 }
 

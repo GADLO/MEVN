@@ -4,7 +4,12 @@ import Card from '../components/Card.vue';
 import Home from '../pages/Home.vue';
 import Codeblocks from '../pages/Codeblocks.vue';
 import ServerTest from '../pages/ServerTest.vue';
-import { Explore, Tools, CreateWeb } from '../pages/webs';
+import {
+  Explore,
+  Tools,
+  CreateWeb,
+  UpdateWeb,
+} from '../pages/webs';
 import {
   CreatePost,
   Posts,
@@ -54,6 +59,11 @@ const web = [
     path: '/createweb',
     name: 'createweb',
     component: CreateWeb,
+  },
+  {
+    path: '/updateweb/:id',
+    name: 'updateweb',
+    component: UpdateWeb,
   },
 ];
 

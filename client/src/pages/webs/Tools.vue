@@ -4,7 +4,7 @@
     <div class="container">
       <Card
         class="npm-color"
-        v-for="site in sites.jsTools"
+        v-for="site in npm"
         :site="site"
         :key="site.name"
       />
@@ -13,7 +13,8 @@
 </template>
 <script>
 import Card from '../../components/Card.vue';
-import web from '../../../public/data/frontend';
+import api from '../../api/api';
+// import web from '../../../public/data/frontend';
 
 export default {
   components: {
@@ -22,8 +23,26 @@ export default {
 
   data() {
     return {
-      sites: web,
+      npm: [],
+      sites: [],
     };
+  },
+  methods: {
+    async fetchWebs() {
+      const response = await api.get('/web/webs');
+      this.sites = await response.data;
+      this.sites.forEach((site) => {
+        if (site.type.includes('npm')) {
+          this.npm.push(site);
+        }
+      });
+    },
+    toCreateWeb() {
+      this.$router.replace({ path: '/createweb' });
+    },
+  },
+  mounted() {
+    this.fetchWebs();
   },
 };
 </script>

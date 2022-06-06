@@ -20,8 +20,8 @@
         <el-input v-model="form.content" type="textarea" />
       </el-form-item>
       <el-form-item>
-        <el-button round type="primary" @click="update()">更新</el-button>
-        <el-button round @click="back">取消</el-button>
+        <el-button type="primary" @click="update()">更新</el-button>
+        <el-button @click="back">取消</el-button>
       </el-form-item>
     </el-form>
   </div>
@@ -85,6 +85,6 @@ const back = () => {
 }
 
 .form {
-  width: 50vw;
+  width: 60vw;
 }
 </style>

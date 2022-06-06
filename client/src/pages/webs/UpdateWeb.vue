@@ -17,7 +17,7 @@
           <el-checkbox label="backend" name="type" />
           <el-checkbox label="npm" name="type" />
           <el-checkbox label="bundler" name="type" />
-          <el-checkbox label="other" name="type" />
+          <el-checkbox label="unknown" name="type" />
         </el-checkbox-group>
       </el-form-item>
       <el-form-item label="当前版本">
@@ -35,25 +35,43 @@
 </template>
 
 <script setup>
-import { reactive } from 'vue';
-import { useRouter } from 'vue-router';
+import { onMounted, reactive } from 'vue';
+import { useRoute, useRouter } from 'vue-router';
 import api from '../../api/api';
-// import web from '../../../public/data/frontend';
 
+const route = useRoute();
 const router = useRouter();
+let web = {};
 
 // do not use same name with ref
 const form = reactive({
-  name: 'web',
-  url: 'url',
-  icon: 'icon',
-  desc: 'desc',
-  ver: 'ver',
+  name: '',
+  url: '',
+  icon: '',
+  desc: '',
+  ver: '',
   type: [],
 });
 
+const fetchWeb = async () => {
+  const response = await api.get(`/web/getweb/${route.params.id}`);
+  web = response.data;
+  form.name = web.name;
+  form.url = web.url;
+  form.icon = web.icon;
+  form.ver = web.ver;
+  form.type = web.type;
+  form.desc = web.desc;
+};
+
+onMounted(() => {
+  fetchWeb();
+});
+
 const onSubmit = async () => {
-  const response = await api.post('/web/createweb', {
+  router.replace({ path: '/explore' });
+
+  await api.put(`/web/updateweb/${route.params.id}`, {
     name: form.name,
     url: form.url,
     icon: form.icon,
@@ -61,23 +79,7 @@ const onSubmit = async () => {
     ver: form.ver,
     type: form.type,
   });
-  if (response.status === 200) {
-    router.replace({ path: '/blog/posts' });
-  }
 };
-
-// const upload = () => {
-//   Object.keys(web).forEach((i) => {
-//     api.post('/web/createweb', {
-//       name: web[i].name,
-//       url: web[i].url,
-//       icon: web[i].icon,
-//       desc: web[i].desc,
-//       ver: web[i].ver,
-//       type: web[i].type,
-//     });
-//   });
-// };
 </script>
 
 <style scoped>
