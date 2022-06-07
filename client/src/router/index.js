@@ -1,9 +1,13 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
 
 import Card from '../components/Card.vue';
-import Home from '../pages/Home.vue';
-import Codeblocks from '../pages/Codeblocks.vue';
-import ServerTest from '../pages/ServerTest.vue';
+import {
+  Home,
+  About,
+  Codeblocks,
+  ServerTest,
+  Outsite,
+} from '../pages';
 import {
   Explore,
   Tools,
@@ -87,6 +91,16 @@ const routes = [
     path: '/servertest',
     name: 'servertest',
     component: ServerTest,
+  },
+  {
+    path: '/about',
+    name: 'about',
+    component: About,
+  },
+  {
+    path: '/outsite',
+    name: 'outsite',
+    component: Outsite,
   },
   ...post,
   ...web,

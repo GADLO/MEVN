@@ -28,9 +28,7 @@
         <div>...</div>
       </div>
       <div>
-        <el-button type="primary" round @click="toCreatePost()" class="btn">
-          新建</el-button
-        >
+        <Button @click="toCreatePost()" text="新建" />
       </div>
     </div>
   </div>
@@ -66,7 +64,7 @@ export default {
 <style lang="less" scope="this api replaced by slot-scope in 2.5.0+">
 .wrap {
   width: 100vw;
-  margin-top: 10rem;
+  padding: 10rem 0;
   display: grid;
   place-content: center;
   .posts {

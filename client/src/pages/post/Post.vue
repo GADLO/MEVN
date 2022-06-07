@@ -23,9 +23,7 @@
       </div>
     </div>
     <div class="btn">
-      <el-button v-if="!wait" type="warning" round @click="toUpdatePost()">
-        编辑</el-button
-      >
+      <Button v-if="!wait" @click="toUpdatePost()" text="编辑" />
     </div>
   </div>
 </template>
@@ -62,7 +60,7 @@ export default {
 <style lang="less" scoped>
 .wrap {
   width: 100vw;
-  margin-top: 10rem;
+  padding: 10rem 0;
   display: grid;
   place-content: center;
 }

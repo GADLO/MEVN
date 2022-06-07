@@ -23,7 +23,7 @@
       <Card v-for="site in unknown" :site="site" :key="site.name" />
     </div>
   </el-main>
-  <el-button @click="toCreateWeb" type="primary">新增</el-button>
+  <Button @click="toCreateWeb" text="新增" />
 </template>
 <script>
 import Card from '../../components/Card.vue';
@@ -68,7 +68,6 @@ export default {
   },
   mounted() {
     this.fetchWebs();
-    console.log(this.frontend);
   },
 };
 </script>

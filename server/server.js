@@ -30,4 +30,7 @@ app.get('/servertest', (req, res) => {
 const postRoute = require('./routes/post');
 app.use('/blog', postRoute);
 
+const webRoute = require('./routes/web');
+app.use('/web', webRoute);
+
 app.listen(process.env.PORT || 8081);

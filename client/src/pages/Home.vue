@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="main">
     <el-carousel trigger="click" height="300px" id="carousel">
       <el-carousel-item class="row" v-for="item in items" :key="item">
         <div class="center">
@@ -10,11 +10,8 @@
         </div>
       </el-carousel-item>
     </el-carousel>
-    <div class="center"><h1>万丈高楼平地起</h1></div>
-    <div class="center grid-3">
-      <div class="center">HTML</div>
-      <div class="center">CSS</div>
-      <div class="center">JS</div>
+    <div class="staff">
+      <Button text="EXPLORE" />
     </div>
   </div>
 </template>
@@ -22,7 +19,8 @@
 <script>
 import html from './icons8-html-5-480.svg';
 import css from './icons8-css3-480.svg';
-import js from './icons8-javascript-480.svg';
+// import js from './icons8-javascript-480.svg';
+import ship from './color-gradient-spacecraft_animated.svg';
 
 export default {
   data() {
@@ -30,7 +28,7 @@ export default {
       items: [
         { name: html, description: 'HTML 定义了网页的内容' },
         { name: css, description: 'CSS 描述了网页的布局' },
-        { name: js, description: 'JavaScript 控制了网页的行为' },
+        { name: ship, description: 'JavaScript 控制了网页的行为' },
       ],
     };
   },
@@ -42,32 +40,43 @@ export default {
 };
 </script>
 
-<style>
-.row {
-  display: flex;
-  justify-content: space-evenly;
+<style lang="less" scoped>
+.main {
+  height: 100vh;
+
+  .row {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  .center {
+    display: grid;
+    place-content: center;
+
+    h1 {
+      color: #fff;
+    }
+  }
+
+  .logo {
+    width: 300px;
+    height: 300px;
+    color: black;
+    /* font-size: 20px; */
+  }
+  .el-carousel__item:nth-child(2n) {
+    background-color: #464e5a;
+  }
+
+  .el-carousel__item:nth-child(2n + 1) {
+    background-color: #323436;
+  }
 }
-.center {
+
+/* CSS */
+
+.staff {
   display: grid;
   place-content: center;
-}
-
-.grid-3 {
-  display: grid;
-  place-content: center;
-  grid-template-columns: 1fr 1fr 1fr;
-}
-
-.logo {
-  width: 300px;
-  height: 300px;
-  /* font-size: 20px; */
-}
-.el-carousel__item:nth-child(2n) {
-  background-color: #99a9bf;
-}
-
-.el-carousel__item:nth-child(2n + 1) {
-  background-color: #d3dce6;
+  height: 60vh;
 }
 </style>

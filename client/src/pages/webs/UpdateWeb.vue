@@ -36,11 +36,11 @@
 
 <script setup>
 import { onMounted, reactive } from 'vue';
-import { useRoute, useRouter } from 'vue-router';
+import { useRoute } from 'vue-router';
 import api from '../../api/api';
 
 const route = useRoute();
-const router = useRouter();
+// const router = useRouter();
 let web = {};
 
 // do not use same name with ref
@@ -69,9 +69,9 @@ onMounted(() => {
 });
 
 const onSubmit = async () => {
-  router.replace({ path: '/explore' });
+  //   router.replace({ path: '/explore' });
 
-  await api.put(`/web/updateweb/${route.params.id}`, {
+  const response = await api.put(`/web/updateweb/${route.params.id}`, {
     name: form.name,
     url: form.url,
     icon: form.icon,
@@ -79,6 +79,8 @@ const onSubmit = async () => {
     ver: form.ver,
     type: form.type,
   });
+
+  alert(response);
 };
 </script>
 
