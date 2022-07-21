@@ -23,7 +23,7 @@
       <Card v-for="site in unknown" :site="site" :key="site.name" />
     </div>
   </el-main>
-  <Button @click="toCreateWeb" text="新增" />
+  <Button @click="toCreateWeb" text="新增" class="button"/>
 </template>
 <script>
 import Card from '../../components/Card.vue';

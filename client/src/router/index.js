@@ -1,109 +1,38 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
 
-import Card from '../components/Card.vue';
-import {
-  Home,
-  About,
-  Codeblocks,
-  ServerTest,
-  Outsite,
-} from '../pages';
-import {
-  Explore,
-  Tools,
-  CreateWeb,
-  UpdateWeb,
-} from '../pages/webs';
-import {
-  CreatePost,
-  Posts,
-  UpdatePost,
-  Post,
-} from '../pages/post';
-
-const post = [
-  {
-    path: '/blog/posts',
-    name: 'posts',
-    component: Posts,
-  },
-  {
-    path: '/blog/post/:id',
-    name: 'post',
-    component: Post,
-  },
-  {
-    path: '/blog/updatepost/:id',
-    name: 'updatepost',
-    component: UpdatePost,
-  },
-  {
-    path: '/blog/createpost',
-    name: 'createpost',
-    component: CreatePost,
-  },
-  {
-    path: '/blog/deletepost',
-    name: 'deletepost',
-  },
-];
-
-const web = [
-  {
-    path: '/explore',
-    name: 'explore',
-    component: Explore,
-  },
-  {
-    path: '/tools',
-    name: 'tools',
-    component: Tools,
-  },
-  {
-    path: '/createweb',
-    name: 'createweb',
-    component: CreateWeb,
-  },
-  {
-    path: '/updateweb/:id',
-    name: 'updateweb',
-    component: UpdateWeb,
-  },
-];
+import web from './web';
+import post from './post';
+import labs from './labs';
 
 const routes = [
   {
     path: '/',
     name: 'home',
-    component: Home,
+    component: () => import('../pages/Home.vue'),
   },
   {
     path: '/card',
     name: 'card',
-    component: Card,
+    component: () => import('../components/Card.vue'),
   },
   {
     path: '/codeblocks',
     name: 'codeblocks',
-    component: Codeblocks,
+    component: () => import('../pages/Codeblocks.vue'),
   },
   {
     path: '/servertest',
     name: 'servertest',
-    component: ServerTest,
+    component: () => import('../pages/ServerTest.vue'),
   },
   {
     path: '/about',
     name: 'about',
-    component: About,
-  },
-  {
-    path: '/outsite',
-    name: 'outsite',
-    component: Outsite,
+    component: () => import('../pages/About.vue'),
   },
   ...post,
   ...web,
+  ...labs,
 ];
 
 const router = createRouter({ history: createWebHashHistory(), routes });

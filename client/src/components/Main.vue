@@ -1,7 +1,13 @@
 <template>
-  <router-view></router-view>
+  <div class="main">
+    <router-view></router-view>
+  </div>
 </template>
 <script>
 export default {};
 </script>
-<style></style>
+<style scoped>
+.main {
+  min-height: 100vh;
+}
+</style>

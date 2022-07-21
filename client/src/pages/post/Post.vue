@@ -127,37 +127,13 @@ export default {
   width: 80vw;
   margin-top: 5rem;
 }
+code {
+  background-color: rgb(230, 230, 230);
+}
 </style>
 <style lang="less">
 a {
   text-decoration: none;
   color: green;
-}
-
-code {
-  color: indianred;
-  background-color: rgb(238, 235, 235);
-  padding: 2px 5px;
-  margin: 0 2px;
-  border-radius: 3px;
-  font-weight: 200;
-  font-family: monospace, sans-serif;
-  letter-spacing: 0;
-  font-size: 12px;
-}
-
-pre {
-  display: block;
-  background-color: rgb(238, 235, 235);
-  border-radius: 6px;
-  padding: 15px;
-
-  .language-js {
-    color: indianred;
-  }
-
-  &::before {
-    height: 20px;
-  }
 }
 </style>

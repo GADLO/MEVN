@@ -1,7 +1,7 @@
 <template>
-  <div class="wrap">
+  <div class="form">
     <h1>新增文章</h1>
-    <el-form :model="form" label-width="120px" class="form">
+    <el-form :model="form" label-width="120px">
       <el-form-item label="标题">
         <el-input v-model="form.title" />
       </el-form-item>
@@ -55,13 +55,11 @@ const onSubmit = async () => {
 };
 </script>
 
-<style scoped>
-.wrap {
-  width: 100vw;
-  /* height: 100%; */
-}
-
+<style >
 .form {
-  width: 50vw;
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  place-content: center;
 }
 </style>

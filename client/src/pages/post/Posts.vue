@@ -28,7 +28,7 @@
         <div>...</div>
       </div>
       <div>
-        <Button @click="toCreatePost()" text="新建" />
+        <Button @click="toCreatePost()" text="新建" class="button-color" />
       </div>
     </div>
   </div>
@@ -71,7 +71,7 @@ export default {
     width: 70vw;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 5rem;
+    grid-gap: 3rem;
 
     .post {
       background-image: linear-gradient(

@@ -17,6 +17,7 @@
           <el-checkbox label="backend" name="type" />
           <el-checkbox label="npm" name="type" />
           <el-checkbox label="bundler" name="type" />
+          <el-checkbox label="outsite" name="type" />
           <el-checkbox label="other" name="type" />
         </el-checkbox-group>
       </el-form-item>
@@ -83,7 +84,10 @@ const onSubmit = async () => {
 <style scoped>
 .wrap {
   width: 100vw;
-  /* height: 100%; */
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .form {

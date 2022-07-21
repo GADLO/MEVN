@@ -11,7 +11,12 @@
       </el-carousel-item>
     </el-carousel>
     <div class="staff">
-      <Button text="EXPLORE" />
+      <div>
+        <Button text="毕" class="button-square" />
+      </div>
+      <div>
+        <Button text="EXPLORE" class="button-color" />
+      </div>
     </div>
   </div>
 </template>

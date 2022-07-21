@@ -1,31 +1,31 @@
-const Web = require('../models/web');
+const Project = require('../models/project');
 const dayjs = require('dayjs');
 
 // this is our create method
 // this method adds neweWeb in ourWebbase
-module.exports.createWeb = async (req, res) => {
+module.exports.createProject = async (req, res) => {
   // console.log(req.body);
   const now = dayjs(`${new Date()}`).format('YYYY-MM-DD HH:mm:ss');
-  const newWeb = new Web({
+  const newProject = new Project({
     ...req.body,
     timestamp: now,
   });
 
-  newWeb.save((error) => {
+  newProject.save((error) => {
     if (error) {
       console.log(error);
     }
     res.send({
       success: true,
-      message: 'from: WebControl,Web saved successfully!',
+      message: 'from: ProjectControl,Project saved successfully!',
     });
   });
 };
 
-module.exports.Webs = async (req, res) => {
+module.exports.Projects = async (req, res) => {
   try {
-    const webs = await Web.find({});
-    res.status(200).json(webs);
+    const Projects = await Project.find({});
+    res.status(200).json(Projects);
   } catch (error) {
     res.status(404).json({
       message: error.message,
@@ -33,10 +33,10 @@ module.exports.Webs = async (req, res) => {
   }
 };
 
-module.exports.getWeb = async (req, res) => {
+module.exports.getProject = async (req, res) => {
   try {
-    const web = await Web.findById(req.params.id);
-    res.status(200).json(web);
+    const Project = await Project.findById(req.params.id);
+    res.status(200).json(Project);
   } catch (error) {
     res.status(404).json({
       message: error.message,
@@ -45,11 +45,11 @@ module.exports.getWeb = async (req, res) => {
 };
 
 // 更新
-// this method overwrites existingeWeb in oureWebbase
-module.exports.updateWeb = async (req, res) => {
+// this method overwrites existingeProject in oureProjectbase
+module.exports.updateProject = async (req, res) => {
   const now = dayjs(`${new Date()}`).format('YYYY-MM-DD HH:mm:ss');
   try {
-    const updatedResult = await Web.findByIdAndUpdate(
+    const updatedResult = await Project.findByIdAndUpdate(
       req.params.id,
       { ...req.body, timestamp: now },
       {
@@ -64,12 +64,12 @@ module.exports.updateWeb = async (req, res) => {
 };
 
 // this is our delete method
-// this method removes existingeWeb in oureWebbase
-module.exports.deleteWeb = async (req, res) => {
+// this method removes existingeProject in oureProjectbase
+module.exports.deleteProject = async (req, res) => {
   const { id: _id } = req.params;
   try {
-    const deleteWeb = await Web.findByIdAndRemove(_id);
-    res.status(200).json(deleteWeb);
+    const deleteProject = await Project.findByIdAndRemove(_id);
+    res.status(200).json(deleteProject);
   } catch (error) {
     res.status(409).json({
       message: error.message,
